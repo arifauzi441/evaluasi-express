@@ -1,0 +1,31 @@
+<%- include(`../partials/_head`) %>
+    <div class="container">
+        <div class="rows">
+            <div class="col">
+                <a class="btn btn-success btn-sm" href="/penyimpanan/create">Tambah</a>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">no</th>
+                        <th scope="col">nama penyimpanan</th>
+                        <th scope="col">kode penyimpanan</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% for( let i = 0; i < data.length; i++ ) { %>
+                            <tr>
+                              <th scope="row"><%= (i+1) %></th>
+                              <td><%= data[i].nama_penyimpanan %></td>
+                              <td><%= data[i].kode_penyimpanan %></td>
+                              <td>
+                                  <a class="btn btn-warning btn-sm" href="penyimpanan/edit/<%- data[i].id_penyimpanan %>">edit</a>
+                                  <a class="btn btn-danger btn-sm" href="penyimpanan/delete/<%- data[i].id_penyimpanan %>">delete</a>
+                              </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+<%- include(`../partials/_footer`) %>

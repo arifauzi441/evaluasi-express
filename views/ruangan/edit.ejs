@@ -1,0 +1,19 @@
+<%- include('../partials/_head') %>
+    <div class="container">
+        <div class="rows">
+            <div class="col">
+                <a href="/ruangan" class="btn btn-success btn-sm mb-3">Kembali</a>
+                <form action="/ruangan/update/<%= id %>" method="post">
+                    <input type="text" value="<%= nama %>" class="form-controll d-block mb-3" name="nama_ruangan" required>
+                    <input type="text" value="<%= kode %>" class="form-controll d-block mb-3" name="kode_ruangan" required>
+                    <select name="id_pegawai" class="d-block mb-3">
+                        <% for( let i = 0; i < data2.length; i++ ) { %>
+                            <option value="<%= data2[i].id_pegawai %>"><%= data2[i].nama_pegawai %></option>
+                        <% } %>
+                    </select>
+                    <button class="btn btn-primary btn-sm">submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<%- include('../partials/_footer') %>

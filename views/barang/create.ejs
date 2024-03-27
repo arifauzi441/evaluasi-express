@@ -1,0 +1,24 @@
+<%- include('../partials/_head') %>
+    <div class="container">
+        <div class="rows">
+            <div class="col">
+                <a href="/barang" class="btn btn-success btn-sm mb-3">Kembali</a>
+                <form action="/barang/store" method="post">
+                    <input type="text" placeholder="nama barang" class="form-controll d-block mb-3" name="nama_barang" required>
+                    <input type="text" placeholder="kode barang" class="form-controll d-block mb-3" name="kode_barang" required>
+                    <input type="text" placeholder="merk barang" class="form-controll d-block mb-3" name="merk_spesifikasi_barang" required>
+                    <input type="text" placeholder="tahun barang" class="form-controll d-block mb-3" name="tahun_perolehan_barang" required>
+                    <input type="text" placeholder="sumber barang" class="form-controll d-block mb-3" name="sumber_perolehan_barang" required>
+                    <input type="text" placeholder="jumlah barang" class="form-controll d-block mb-3" name="jumlah_perolehan_barang" required>
+                    <input type="text" placeholder="kondisi barang" class="form-controll d-block mb-3" name="kondisi_perolehan_barang" required>
+                    <select name="id_penyimpanan" class="d-block mb-3">
+                        <% for( let i = 0; i < data.length; i++ ) { %>
+                            <option value="<%= data[i].id_penyimpanan %>"><%= data[i].nama_penyimpanan %></option>
+                        <% } %>
+                    </select>
+                    <button class="btn btn-primary btn-sm">submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<%- include('../partials/_footer') %>

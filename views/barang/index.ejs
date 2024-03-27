@@ -1,0 +1,41 @@
+<%- include(`../partials/_head`) %>
+    <div class="container">
+        <div class="rows">
+            <div class="col">
+                <a class="btn btn-success btn-sm" href="/barang/create">Tambah</a>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">no</th>
+                        <th scope="col">nama barang</th>
+                        <th scope="col">kode barang</th>
+                        <th scope="col">merk barang</th>
+                        <th scope="col">tahun barang</th>
+                        <th scope="col">sumber barang</th>
+                        <th scope="col">jumlah barang</th>
+                        <th scope="col">kondiai barang</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% for( let i = 0; i < data.length; i++ ) { %>
+                            <tr>
+                              <th scope="row"><%= (i+1) %></th>
+                              <td><%= data[i].nama_barang %></td>
+                              <td><%= data[i].kode_barang %></td>
+                              <td><%= data[i].merk_spesifikasi_barang %></td>
+                              <td><%= data[i].tahun_perolehan_barang %></td>
+                              <td><%= data[i].sumber_perolehan_barang %></td>
+                              <td><%= data[i].jumlah_perolehan_barang %></td>
+                              <td><%= data[i].kondisi_perolehan_barang %></td>
+                              <td>
+                                  <a class="btn btn-warning btn-sm" href="barang/edit/<%- data[i].id_barang %>">edit</a>
+                                  <a class="btn btn-danger btn-sm" href="barang/delete/<%- data[i].id_barang %>">delete</a>
+                              </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+<%- include(`../partials/_footer`) %>
